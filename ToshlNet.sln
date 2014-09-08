@@ -1,9 +1,11 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2013
-VisualStudioVersion = 12.0.30723.0
+VisualStudioVersion = 12.0.30501.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ToshlNet", "ToshlNet\ToshlNet.csproj", "{53D685E8-961A-48C1-8298-978F282045A0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ToshlNet.SampleMVC", "ToshlNet.SampleMVC\ToshlNet.SampleMVC.csproj", "{DBBB5609-23A1-474D-B038-1DDB8D6077F6}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +17,10 @@ Global
 		{53D685E8-961A-48C1-8298-978F282045A0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{53D685E8-961A-48C1-8298-978F282045A0}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{53D685E8-961A-48C1-8298-978F282045A0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DBBB5609-23A1-474D-B038-1DDB8D6077F6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DBBB5609-23A1-474D-B038-1DDB8D6077F6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DBBB5609-23A1-474D-B038-1DDB8D6077F6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DBBB5609-23A1-474D-B038-1DDB8D6077F6}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
