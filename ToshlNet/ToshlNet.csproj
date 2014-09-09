@@ -46,12 +46,13 @@
     <Compile Include="Helpers\HttpRequestHandler.cs" />
     <Compile Include="Helpers\HttpUtility.cs" />
     <Compile Include="Helpers\JsonConvertHelper.cs" />
-    <Compile Include="Helpers\StringJoinSerializer.cs" />
+    <Compile Include="Helpers\UrlFormEncoded.cs" />
     <Compile Include="Models\Expense.cs" />
     <Compile Include="Models\HttpRequestItem.cs" />
     <Compile Include="Models\OAuthToken.cs" />
     <Compile Include="Models\ToshlClient.cs" />
     <Compile Include="Models\User.cs" />
+    <Compile Include="Models\Validation.cs" />
     <Compile Include="OAuth\ToshlOAuth.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

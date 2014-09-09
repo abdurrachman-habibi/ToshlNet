@@ -23,8 +23,7 @@ namespace ToshlNet.Models
         [JsonProperty(PropertyName = "desc")]
         public string Description { get; set; }
 
-        [JsonProperty(PropertyName = "tags")]
-        [JsonConverter(typeof(StringJoinSerializer))]
+        [JsonProperty(PropertyName = "tags")]        
         public string[] Tags { get; set; }        
     }
 }

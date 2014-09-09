@@ -1,9 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 using System.Net.Http;
 using System.Net.Http.Headers;
-using System.Text;
 using System.Threading.Tasks;
 using ToshlNet.Helpers;
 using ToshlNet.Models;
@@ -65,26 +63,39 @@ namespace ToshlNet.Endpoints
             return expense;
         }
 
-        public async Task<int> Create(Expense expense)
+        public async Task<Validation<string>> Create(Expense expense)
         {
+            IEnumerable<KeyValuePair<string, string>> dict = UrlFormEncoded.Encode(expense);
+
             HttpRequestItem httpRequestItem = new HttpRequestItem()
             {
                 Url = "https://api.toshl.com/expenses/",
                 HttpMethod = HttpMethod.Post,
                 AuthHeaderValue = new AuthenticationHeaderValue("Bearer", AccessToken),
-                HttpContent = new FormUrlEncodedContent(JsonConvertHelper.SerializeToDictionary(expense))
+                HttpContent = new FormUrlEncodedContent(dict)
             };
 
             HttpResponseMessage httpResponseMessage = await _requestHandler.RequestAsync(httpRequestItem);
 
             if (httpResponseMessage.IsSuccessStatusCode)
             {
-                return 123;
+                string id = httpResponseMessage.Headers.GetValues("Location").First();
+                id = id.Split('/').Last();
+
+                return new Validation<string>()
+                {
+                    ErrorMessages = new string[0],
+                    ReturnObject = id
+                };
             }
-            else
+
+            return new Validation<string>()
             {
-                return 0;
-            }
+                ErrorMessages = new string[]
+                {
+                    httpResponseMessage.ReasonPhrase
+                }
+            };
         }
     }
 }

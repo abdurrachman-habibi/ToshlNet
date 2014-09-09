@@ -28,7 +28,7 @@ namespace ToshlNet.SampleMVC.Controllers
 
                 user.LastName = "tset";
 
-                User user1 = await me.Put(user);
+                //User user1 = await me.Put(user);
 
                 ExpenseApi expenseApi = new ExpenseApi(oAuthToken.AccessToken);
 
