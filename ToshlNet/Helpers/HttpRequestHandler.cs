@@ -31,8 +31,21 @@ namespace ToshlNet.Helpers
                 Content = httpRequestItem.HttpContent
             };
 
+            if (httpRequestItem.Headers != null)
+            {
+                foreach (var header in httpRequestItem.Headers)
+                {
+                    httpRequest.Headers.Add(header.Item1, header.Item2);
+                }
+            }
+
+            if (httpRequestItem.IfUnmodifiedSinceHeader != DateTime.MinValue)
+            {
+                httpRequest.Headers.IfUnmodifiedSince = httpRequestItem.IfUnmodifiedSinceHeader;
+            }
+
             HttpResponseMessage httpResponseMessage = await _client.SendAsync(httpRequest);
-            
+
             return httpResponseMessage;
         }
     }

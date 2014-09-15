@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Net;
 using System.Net.Http;
 using System.Net.Http.Headers;
@@ -17,16 +18,17 @@ namespace ToshlNet.Endpoints
 
         private const string Url = "https://api.toshl.com/me";
 
-        public Me() : this(null)
+        public Me()
+            : this(null)
         {
-            
+
         }
 
         public Me(string accessToken)
         {
             AccessToken = accessToken;
-            
-            _requestHandler = new HttpRequestHandler();      
+
+            _requestHandler = new HttpRequestHandler();
         }
 
         public async Task<User> Get()
@@ -54,10 +56,9 @@ namespace ToshlNet.Endpoints
                 Url = Url,
                 HttpMethod = HttpMethod.Put,
                 AuthHeaderValue = new AuthenticationHeaderValue("Bearer", AccessToken),
-                HttpContent = new FormUrlEncodedContent(JsonConvertHelper.SerializeToDictionary(user))                
+                HttpContent = new FormUrlEncodedContent(JsonConvertHelper.SerializeToDictionary(user)),
+                IfUnmodifiedSinceHeader = new DateTime(2014, 08, 02)
             };
-
-            
 
             HttpResponseMessage httpResponseMessage = await _requestHandler.RequestAsync(httpRequestItem);
 

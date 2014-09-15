@@ -1,4 +1,5 @@
-﻿using System.Net.Http;
+﻿using System;
+using System.Net.Http;
 using System.Net.Http.Headers;
 
 namespace ToshlNet.Models
@@ -12,5 +13,9 @@ namespace ToshlNet.Models
         public AuthenticationHeaderValue AuthHeaderValue { get; set; }
 
         public HttpContent HttpContent { get; set; }
+
+        public DateTime IfUnmodifiedSinceHeader { get; set; }
+
+        public Tuple<string,string>[] Headers { get; set; }
     }
 }
