@@ -49,8 +49,8 @@ namespace ToshlNet.SampleMVC.Controllers
         {
             ToshlClient toshlClient = new ToshlClient()
             {
-                Id = "947da348-5b4a-4e42-848d-6dd71f3768a65d16f23533a889067ed833ba0eceb1a1",
-                Secret = "3c888771-20c6-424c-ad37-e219dc855c11fd4cf511bac1990bc38f5cdbad7b2a9b"
+                Id = "CLIENT_ID",
+                Secret = "CLIENT_SECRET"
             };
 
             ToshlOAuth toshlOAuth = new ToshlOAuth(toshlClient);
